@@ -1,0 +1,71 @@
+import java.util.HashMap;
+
+public class HuffmanEncode {
+   
+  
+ 
+  public static  HashMap<Character,String> code=new HashMap<Character, String>();
+
+    public static String HuffmanEncoding(String input, HuffmanTree tree) {
+    HashMap<Character,Integer> Hmap = new HashMap<Character, Integer>(); 
+    for (int i = 0; i < input.length(); i++)
+    {
+    char  k = input.charAt(i);
+    Integer value = Hmap.get(k);
+         if (value == null) 
+         {
+          Hmap.put(k, 1);
+         }
+         else 
+         {
+        Hmap.put(k, new Integer(value + 1));
+         }
+      
+    }
+    
+    char[] letters=new char[Hmap.size()];
+    Integer[] values=new Integer[Hmap.size()];
+    int i=0;
+    for (HashMap.Entry<Character,Integer> mapEntry : Hmap.entrySet())
+       {
+        letters[i] = mapEntry.getKey();
+        values[i] = mapEntry.getValue();
+        i++;
+       }
+    HuffmanNode[] array= new HuffmanNode[Hmap.size()];
+    for(int a=0;a<i;a++)
+       {
+        HuffmanNode object=new HuffmanNode(letters[a],values[a],null,null);
+        array[a]=object;
+       }
+    tree.addAll(array);
+    
+    
+  String kod = "";
+  String ReturnKod="";
+  HuffmanNode n = tree.root;
+	StringKod(n,kod);
+	  for(int x=0;x<girdi.length();x++)
+	     {
+	      char c=girdi.charAt(x);
+	      ReturnKod+=code.get(c);
+       }
+ return ReturnKod;
+  }
+public static void StringKod(HuffmanNode n, String kod)
+{
+	if((n.left == null) && (n.right == null))
+	 {
+	  code.put(n.value,kod);
+   }
+	else
+	 {
+	  StringKod(n.left,kod + "0");
+	  StringKod(n.right,kod + "1");
+   }
+
+}
+ 
+ 
+
+ }
