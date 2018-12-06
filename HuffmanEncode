@@ -45,9 +45,9 @@ public class HuffmanEncode {
   String ReturnKod="";
   HuffmanNode n = tree.root;
 	StringKod(n,kod);
-	  for(int x=0;x<girdi.length();x++)
+	  for(int x=0;x<input.length();x++)
 	     {
-	      char c=girdi.charAt(x);
+	      char c=input.charAt(x);
 	      ReturnKod+=code.get(c);
        }
  return ReturnKod;
